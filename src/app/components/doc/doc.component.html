@@ -1,0 +1,18 @@
+<div class="card mb-3" style="max-width: 540px">
+  <div class="row g-0">
+    <div class="col-md-4 d-flex align-items-center p-3">
+      <img [src]="imagesrc" alt="docimage" class="img-fluid rounded-start" />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ doc.docName }}</h5>
+        <p class="card-text">
+          Адрес: <span class="fw-bold">{{ doc.address }}</span>
+        </p>
+        <p class="card-text">
+          <small class="text-muted">Дата: {{ doc.docDate }}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

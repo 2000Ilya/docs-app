@@ -1,0 +1,50 @@
+<nav aria-label="Page navigation">
+  <ul class="pagination w-100 justify-content-center mt-3">
+    <li class="page-item" *ngIf="showFirstLastButton">
+      <a
+        [routerLink]="'/docs/' + 1"
+        (click)="handlePageChange(1)"
+        class="page-link"
+      >
+        First
+      </a>
+    </li>
+    <li class="page-item" *ngIf="currentPage > 1">
+      <a
+        [routerLink]="'/docs/' + (currentPage - 1)"
+        (click)="handlePageChange(currentPage - 1)"
+        class="page-link"
+      >
+        < Prev
+      </a>
+    </li>
+    <li class="page-item" *ngFor="let page of getNavigablePages()">
+      <a
+        [routerLink]="'/docs/' + page"
+        (click)="handlePageChange(page)"
+        [class.active]="page === currentPage"
+        class="page-link"
+      >
+        {{ page }}
+      </a>
+    </li>
+    <li class="page-item" *ngIf="currentPage < totalPages">
+      <a
+        [routerLink]="'/docs/' + (currentPage + 1)"
+        (click)="handlePageChange(currentPage + 1)"
+        class="page-link"
+      >
+        Next >
+      </a>
+    </li>
+    <li class="page-item" *ngIf="showFirstLastButton">
+      <a
+        [routerLink]="'/docs/' + totalPages"
+        (click)="handlePageChange(totalPages)"
+        class="page-link"
+      >
+        Last
+      </a>
+    </li>
+  </ul>
+</nav>

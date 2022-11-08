@@ -1,0 +1,20 @@
+<nav class="position-relative pt-5">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a
+        [ngClass]="
+          'nav-link' + (currentRoute.includes('/docs') ? ' active' : '')
+        "
+        routerLink="/docs/1"
+        >Документы</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        [ngClass]="'nav-link' + (currentRoute === '/about' ? ' active' : '')"
+        routerLink="/about"
+        >О сайте</a
+      >
+    </li>
+  </ul>
+</nav>
