@@ -13,6 +13,17 @@ export class PaginationComponent {
   @Input() windowSize: number;
   @Input() showFirstLastButton: boolean;
   @Input() handlePageChange: (currentPage: number) => void;
+  lastPage: number;
+
+  constructor() {
+    this.lastPage = Math.ceil(this.totalPages);
+  }
+
+  ngDoCheck() {
+    if (this.lastPage !== Math.ceil(this.totalPages)) {
+      this.lastPage = Math.ceil(this.totalPages);
+    }
+  }
 
   getNavigablePages(): number[] {
     const pages = [];

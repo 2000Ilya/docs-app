@@ -1,44 +1,21 @@
-<div class="h-100 d-flex flex-column flex-grow-1 justify-content-between">
-  <div>
-    <h1 class="font-bold mb-2 text-center text-lg">{{ title | titlecase }}</h1>
-
-    <div class="mb-2 w-100 d-flex justify-content-between">
-      <input
-        type="text"
-        class="border py-2 px-4"
-        placeholder="Filter products..."
-        [(ngModel)]="term"
-      />
-
-      <button
-        type="button"
-        class="btn btn-primary fw-bold"
-        (click)="modalService.open()"
-      >
-        Добавить документ
-      </button>
-    </div>
-
-    <div *ngIf="filteredDocs(docsService.docs)">
-      <app-doc
-        *ngFor="
-          let doc of filteredDocs(docsService.docs) | filterProducts: term;
-          let i = index
-        "
-        [doc]="doc"
-      ></app-doc>
+<div>
+  <h1 class="font-bold mb-2 text-center text-lg">
+    {{ doc.docName }}
+  </h1>
+  <div class="card mb-3">
+    <div class="card-body">
+      <p class="card-text">Тип документа: {{ doc.docType }}</p>
+      <p class="card-text">Статус: {{ doc.status }}</p>
+      <p class="card-text">
+        Специальный документ: {{ doc.isSpecial ? "да" : "нет" }}
+      </p>
+      <p class="card-text">Адрес: {{ doc.address }}</p>
+      <p class="card-text">
+        Автор: {{ doc.author?.fio + ", " + doc.author?.post }}
+      </p>
+      <p class="card-text">
+        <small class="text-muted">{{ doc.docDate }}</small>
+      </p>
     </div>
   </div>
-  <app-pagination
-    [currentPage]="currentPage"
-    [totalPages]="docsService.docs.length / this.pageSize"
-    [size]="pageSize"
-    [windowSize]="2"
-    [showFirstLastButton]="true"
-    [handlePageChange]="handlePageChange"
-  ></app-pagination>
 </div>
-
-<app-modal *ngIf="modalService.isVisible" title="Создание документа">
-  <app-create-doc [docsService]="docsService"></app-create-doc>
-</app-modal>

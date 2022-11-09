@@ -39,8 +39,8 @@
     </li>
     <li class="page-item" *ngIf="showFirstLastButton">
       <a
-        [routerLink]="'/docs/' + totalPages"
-        (click)="handlePageChange(totalPages)"
+        [routerLink]="'/docs/' + lastPage"
+        (click)="handlePageChange(lastPage)"
         class="page-link"
       >
         Last
