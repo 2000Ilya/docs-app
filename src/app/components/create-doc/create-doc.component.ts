@@ -12,7 +12,9 @@ import * as uuid from 'uuid';
 })
 export class CreateDocComponent implements OnInit {
   @Input() docsService: DocsService;
-  constructor(public modalService: ModalService) {}
+  constructor(public modalService: ModalService) {
+    this.formatDate = this.formatDate.bind(this);
+  }
 
   form = new FormGroup({
     account: new FormControl('', [Validators.required]),
@@ -22,8 +24,8 @@ export class CreateDocComponent implements OnInit {
     docName: new FormControl('', [Validators.required]),
     docType: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required]),
-    status: new FormControl('registered', [Validators.required]),
-    isSpecial: new FormControl(false, [Validators.required]),
+    status: new FormControl('registered'),
+    isSpecial: new FormControl(false),
   });
 
   get account() {
@@ -60,6 +62,18 @@ export class CreateDocComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  formatDate(date: Date) {
+    var d = date,
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
+
   submit() {
     let author: Author;
     if (
@@ -79,7 +93,7 @@ export class CreateDocComponent implements OnInit {
       author,
       id: uuid.v4(),
       docCode: uuid.v4(),
-      docDate: this.form.value.docDate as string,
+      docDate: this.formatDate(new Date()),
       docName: this.form.value.docName as string,
       docType: this.form.value.docType as string,
       address: this.form.value.address as string,
