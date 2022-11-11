@@ -19,13 +19,17 @@
       <button
         type="button"
         class="btn btn-primary fw-bold"
-        (click)="modalService.open()"
+        (click)="modalService.open(); setCardCreating(true)"
       >
         Добавить документ
       </button>
     </div>
 
-    <app-docs-list [docsList]="docsList"></app-docs-list>
+    <app-docs-list
+      (idEvent)="selectId($event)"
+      (cardEditingEvent)="setCardEditing($event)"
+      [docsList]="docsList"
+    ></app-docs-list>
   </div>
   <app-pagination
     [currentPage]="currentPage"
@@ -39,6 +43,27 @@
   ></app-pagination>
 </div>
 
-<app-modal *ngIf="modalService.isVisible" title="Создание документа">
-  <app-create-doc [docsService]="docsService"></app-create-doc>
+<app-modal
+  (cardCloseEvent)="setCardEditing(false); setCardCreating(false)"
+  *ngIf="modalService.isVisible"
+  title="Создание документа"
+  [docsService]="docsService"
+>
+  <app-create-doc
+    *ngIf="isCardCreating && isCardCreating"
+    (cardCreatingEvent)="setCardCreating($event)"
+    [docsService]="docsService"
+  ></app-create-doc>
+</app-modal>
+<app-modal
+  (cardCloseEvent)="setCardEditing(false); setCardCreating(false)"
+  *ngIf="modalService.isVisible && isCardEditing"
+  title="Редактирование документа"
+  [docsService]="docsService"
+>
+  <app-edit-doc
+    *ngIf="isCardEditing"
+    (cardEditingEvent)="setCardEditing($event)"
+    [id]="selectedId"
+  ></app-edit-doc>
 </app-modal>

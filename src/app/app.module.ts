@@ -19,6 +19,7 @@ import { SortByPipe } from './pipes/sort-by-date.pipe';
 import { PaginateDocsPipe } from './pipes/paginate-docs.pipe';
 import { CeilPipe } from './pipes/ceil.pipe';
 import { DocsListComponent } from './components/docs-list/docs-list.component';
+import { EditDocComponent } from './components/edit-doc/edit-doc.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DocsListComponent } from './components/docs-list/docs-list.component';
     FocusDirective,
     DocPageComponent,
     DocsListComponent,
+    EditDocComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,4 @@
-<div
-  class="bg-dark bg-opacity-50 position-fixed vh-100 vw-100"
-  (click)="modalService.close()"
-></div>
+<div class="bg-dark bg-opacity-50 position-fixed vh-100 vw-100"></div>
 
 <div class="modal position-relative top-50 translate-middle-y">
   <div class="modal-dialog">
@@ -9,7 +6,7 @@
       <div class="modal-header">
         <h5 class="modal-title">{{ title | titlecase }}</h5>
         <button
-          (click)="modalService.close()"
+          (click)="closeCard(); modalService.close()"
           type="button"
           class="btn-close"
           data-bs-dismiss="modal"

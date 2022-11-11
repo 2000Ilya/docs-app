@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DocsService } from '../../services/docs.service';
 import { ModalService } from '../../services/modal.service';
@@ -12,6 +12,8 @@ import * as uuid from 'uuid';
 })
 export class CreateDocComponent implements OnInit {
   @Input() docsService: DocsService;
+  @Output() cardCreatingEvent = new EventEmitter<boolean>();
+
   constructor(public modalService: ModalService) {
     this.formatDate = this.formatDate.bind(this);
   }
@@ -72,6 +74,10 @@ export class CreateDocComponent implements OnInit {
     if (day.length < 2) day = '0' + day;
 
     return [year, month, day].join('-');
+  }
+
+  setCardCreating(isCardCreating: boolean) {
+    this.cardCreatingEvent.emit(isCardCreating);
   }
 
   submit() {

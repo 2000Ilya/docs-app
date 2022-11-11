@@ -20,6 +20,9 @@ export class DocsPageComponent implements OnInit {
   pageSize: number;
   currentPage: number;
   totalPages: number;
+  selectedId: string;
+  isCardEditing: boolean;
+  isCardCreating: boolean;
 
   constructor(
     public docsService: DocsService,
@@ -32,7 +35,8 @@ export class DocsPageComponent implements OnInit {
     this.pageSize = 2;
     this.currentPage = Number(router.routerState.snapshot.url.slice(6));
 
-    // this.filteredDocs = this.filteredDocs.bind(this);
+    this.setCardEditing = this.setCardEditing.bind(this);
+    this.setCardCreating = this.setCardCreating.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
   }
 
@@ -60,6 +64,24 @@ export class DocsPageComponent implements OnInit {
       this.currentPage,
       this.pageSize
     );
+  }
+
+  selectId($event: string) {
+    console.log($event, this.selectedId);
+
+    this.selectedId = $event;
+    console.log($event, this.selectedId);
+
+    this.isCardEditing = true;
+  }
+
+  setCardEditing($event: boolean) {
+    console.log($event);
+    this.isCardEditing = $event;
+  }
+
+  setCardCreating($event: boolean) {
+    this.isCardCreating = $event;
   }
 
   handlePageChange(currentPage: number): void {

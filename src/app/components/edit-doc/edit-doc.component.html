@@ -1,0 +1,50 @@
+<form
+  class="modal-body"
+  [formGroup]="form"
+  (ngSubmit)="submit(); setCardEditing(false)"
+>
+  <div class="mb-0">
+    <label for="docName" class="form-label">Название документа</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Название документа"
+      formControlName="docName"
+      id="docName"
+    />
+    <p
+      class="text-red-600 font-medium mb-0"
+      *ngIf="docName.errors?.minlength && docName.touched"
+    >
+      Please fill docName field width min length. Now {{ docName.value.length }}
+    </p>
+  </div>
+  <div class="mb-0">
+    <label for="address" class="form-label">Адрес</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Адрес"
+      formControlName="address"
+      id="address"
+    />
+    <p
+      class="text-red-600 font-medium mb-0"
+      *ngIf="address.errors?.minlength && address.touched"
+    >
+      Please fill address field width min length. Now {{ address.value.length }}
+    </p>
+  </div>
+
+  <div class="modal-footer">
+    <button
+      (click)="setCardEditing(false); modalService.close()"
+      type="button"
+      class="btn btn-secondary"
+      data-bs-dismiss="modal"
+    >
+      Закрыть
+    </button>
+    <button type="submit" class="btn btn-primary">Редактировать</button>
+  </div>
+</form>

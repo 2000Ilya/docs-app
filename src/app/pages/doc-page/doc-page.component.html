@@ -10,7 +10,7 @@
         Специальный документ: {{ doc.isSpecial ? "да" : "нет" }}
       </p>
       <p class="card-text">Адрес: {{ doc.address }}</p>
-      <p class="card-text">
+      <p *ngIf="doc.author" class="card-text">
         Автор: {{ doc.author?.fio + ", " + doc.author?.post }}
       </p>
       <p class="card-text">

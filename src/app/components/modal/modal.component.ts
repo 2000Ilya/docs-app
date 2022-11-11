@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DocsService } from 'src/app/services/docs.service';
 import { ModalService } from '../../services/modal.service';
 
@@ -10,8 +10,13 @@ import { ModalService } from '../../services/modal.service';
 export class ModalComponent implements OnInit {
   @Input() title: string;
   @Input() docsService: DocsService;
+  @Output() cardCloseEvent = new EventEmitter<boolean>();
 
   constructor(public modalService: ModalService) {}
 
   ngOnInit(): void {}
+
+  closeCard() {
+    this.cardCloseEvent.emit();
+  }
 }

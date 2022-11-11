@@ -9,17 +9,18 @@ export class DocsService {
   docs: IDoc[];
   constructor() {
     this.docs = docs;
-    this.sort = this.sort.bind(this);
+    this.edit = this.edit.bind(this);
   }
 
-  sort(isSortFromNew: boolean) {
-    this.docs.sort((doc1, doc2) => {
-      if (isSortFromNew) {
-        return Number(new Date(doc2.docDate)) - Number(new Date(doc1.docDate));
-      } else {
-        return Number(new Date(doc1.docDate)) - Number(new Date(doc2.docDate));
-      }
-    });
+  edit(id: string, docName: string, address: string) {
+    console.log(
+      this.docs.forEach((doc) => {
+        if (doc.id === id) {
+          doc.docName = docName;
+          doc.address = address;
+        }
+      })
+    );
   }
 
   create(doc: IDoc) {
