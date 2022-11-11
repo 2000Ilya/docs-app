@@ -4,25 +4,29 @@
 
 Contains navbar, filtering of docs input, creating new doc button, the list of docs and pagination:
 
-<img src="./readme-assets/main-page.png" width="80%" style="display: block; margin: 0 auto">
+<p align="center">
+<img src="./readme-assets/main-page.png" width="80%"></p>
 
 ## Page with doc info
 
 Contains info of certain doc:
 
-<img src="./readme-assets/doc-page.png" width="80%" style="display: block; margin: 0 auto">
+<p align="center">
+<img src="./readme-assets/doc-page.png" width="80%"></p>
 
 ## Creating doc form
 
 Creates new doc:
 
-<img src="./readme-assets/create-doc.png" width="80%" style="display: block; margin: 0 auto">
+<p align="center">
+<img src="./readme-assets/create-doc.png" width="80%"></p>
 
 ## Editing doc form
 
 Edits doc card info:
 
-<img src="./readme-assets/edit-doc.png" width="80%" style="display: block; margin: 0 auto">
+<p align="center">
+<img src="./readme-assets/edit-doc.png" width="80%"></p>
 
 <br>
 <br>
