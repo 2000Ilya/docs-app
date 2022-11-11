@@ -13,7 +13,6 @@ import { FilterDocsPipe } from './pipes/filter-docs.pipe';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CreateDocComponent } from './components/create-doc/create-doc.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { FocusDirective } from './directives/focus.directive';
 import { DocPageComponent } from './pages/doc-page/doc-page.component';
 import { SortByPipe } from './pipes/sort-by-date.pipe';
 import { PaginateDocsPipe } from './pipes/paginate-docs.pipe';
@@ -35,7 +34,6 @@ import { EditDocComponent } from './components/edit-doc/edit-doc.component';
     SortByPipe,
     PaginateDocsPipe,
     CeilPipe,
-    FocusDirective,
     DocPageComponent,
     DocsListComponent,
     EditDocComponent,

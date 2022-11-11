@@ -67,16 +67,12 @@ export class DocsPageComponent implements OnInit {
   }
 
   selectId($event: string) {
-    console.log($event, this.selectedId);
-
     this.selectedId = $event;
-    console.log($event, this.selectedId);
 
     this.isCardEditing = true;
   }
 
   setCardEditing($event: boolean) {
-    console.log($event);
     this.isCardEditing = $event;
   }
 

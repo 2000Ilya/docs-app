@@ -16,7 +16,6 @@ export class NavigationComponent implements OnInit {
   currentRoute: string;
   constructor(private router: Router) {
     this.currentRoute = router.url;
-    // console.log(this.currentRoute, this.currentRoute === '/');
   }
   ngOnInit(): void {
     this.router.events.subscribe((event: Event) => {
@@ -26,7 +25,6 @@ export class NavigationComponent implements OnInit {
 
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.url;
-        console.log(event);
       }
 
       if (event instanceof NavigationError) {

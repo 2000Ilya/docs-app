@@ -43,14 +43,7 @@ export class EditDocComponent implements OnInit {
     this.precompleteForm(this.doc.docName, this.doc.address);
   }
 
-  ngOnChanges(): void {
-    console.log(this.id);
-  }
-
   setCardEditing(isCardEditing: boolean) {
-    console.log(isCardEditing);
-    console.log(this.id);
-
     this.cardEditingEvent.emit(isCardEditing);
   }
 

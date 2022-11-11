@@ -7,7 +7,6 @@ export class ModalService {
   isVisible = false;
 
   open() {
-    console.log('opened');
     this.isVisible = true;
   }
 
