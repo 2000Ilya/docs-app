@@ -1,10 +1,12 @@
 .card {
   cursor: pointer;
   flex-direction: row;
+
   .row {
     min-width: calc(100% - 42px);
-  }
 
-  .btn.btn-secondary.btn-edit {
+    .img-fluid.rounded-start {
+      max-height: 135px;
+    }
   }
 }

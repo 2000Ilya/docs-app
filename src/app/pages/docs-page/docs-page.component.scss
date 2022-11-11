@@ -3,3 +3,11 @@
   display: flex;
   flex-direction: column;
 }
+
+@media (max-width: 600px) {
+  .tooltip-container {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 5px;
+  }
+}
