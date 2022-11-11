@@ -7,23 +7,30 @@ import { docs } from '../../data/docs';
 })
 export class DocsService {
   docs: IDoc[];
+
   constructor() {
-    this.docs = docs;
+    const docsFromStorage = localStorage.getItem('docs');
+    if (docsFromStorage) {
+      this.docs = JSON.parse(docsFromStorage);
+    } else {
+      this.docs = docs;
+      localStorage.setItem('docs', JSON.stringify(docs));
+    }
     this.edit = this.edit.bind(this);
   }
 
   edit(id: string, docName: string, address: string) {
-    console.log(
-      this.docs.forEach((doc) => {
-        if (doc.id === id) {
-          doc.docName = docName;
-          doc.address = address;
-        }
-      })
-    );
+    this.docs.forEach((doc) => {
+      if (doc.id === id) {
+        doc.docName = docName;
+        doc.address = address;
+      }
+    });
+    localStorage.setItem('docs', JSON.stringify(this.docs));
   }
 
   create(doc: IDoc) {
     this.docs.push(doc);
+    localStorage.setItem('docs', JSON.stringify(this.docs));
   }
 }
